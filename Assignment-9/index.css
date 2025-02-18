@@ -1,68 +1,103 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Online Appointment Booking</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <header>
-        <h1>Welcome to Our Appointment Booking System</h1>
-    </header>
-    <main>
-        <section class="services">
-            <h2>Our Services</h2>
-            <div class="service-list">
-                <button class="book-btn" data-service="Doctor">Book Doctor Consultation</button>
-                <button class="book-btn" data-service="Salon">Book Salon Appointment</button>
-                <button class="book-btn" data-service="Car Service">Book Car Service</button>
-            </div>
-        </section>
-    </main>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    text-align: center;
+}
 
-    <div id="appointment-form-container" class="hidden">
-        <form id="appointment-form">
-            <h2>Book an Appointment</h2>
-            <label for="name">Full Name:</label>
-            <input type="text" id="name" required>
-            <label for="email">Email:</label>
-            <input type="email" id="email" required>
-            <label for="phone">Phone:</label>
-            <input type="tel" id="phone" pattern="\d{10}" required>
-            <label for="service">Service:</label>
-            <select id="service">
-                <option value="Doctor">Doctor</option>
-                <option value="Salon">Salon</option>
-                <option value="Car Service">Car Service</option>
-            </select>
-            <label for="datetime">Date & Time:</label>
-            <input type="datetime-local" id="datetime" required>
-            <label for="requests">Special Requests:</label>
-            <textarea id="requests"></textarea>
-            <label for="terms">
-                <input type="checkbox" id="terms"> I agree to the terms
-            </label>
-            <button type="submit">Submit</button>
-            <button type="button" id="close-form">Close</button>
-        </form>
-    </div>
-    
-    <section id="appointments">
-        <h2>Booked Appointments</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Service</th>
-                    <th>Date & Time</th>
-                    <th>Status</th>
-                </tr>
-            </thead>
-            <tbody id="appointment-list"></tbody>
-        </table>
-    </section>
-    
-    <script src="script.js"></script>
-</body>
-</html>
+header {
+    background: #333;
+    color: white;
+    padding: 15px 0;
+    font-size: 1.5em;
+}
+
+.services {
+    margin: 20px;
+}
+
+.service-list button {
+    display: block;
+    margin: 10px auto;
+    padding: 10px 20px;
+    font-size: 1em;
+    background: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.service-list button:hover {
+    background: #0056b3;
+}
+
+#appointment-form-container {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.hidden {
+    display: none;
+}
+
+form label {
+    display: block;
+    margin-top: 10px;
+}
+
+form input, form select, form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button[type="submit"], button[type="button"] {
+    margin-top: 15px;
+    padding: 10px;
+    border: none;
+    background: #28a745;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button[type="submit"]:hover {
+    background: #218838;
+}
+
+button[type="button"] {
+    background: #dc3545;
+}
+
+button[type="button"]:hover {
+    background: #c82333;
+}
+
+#appointments table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background: white;
+}
+
+#appointments th, #appointments td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+#appointments th {
+    background: #007BFF;
+    color: white;
+}
